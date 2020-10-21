@@ -61,10 +61,9 @@
 
     async function getFriendship() {
       const friend = await liff.getFriendship()
-      //ดูว่่า user เป็นเพื่อนกับแชทบอทหรือยัง
       document.getElementById("friendship").append(friend.friendFlag)
       if (!friend.friendFlag) {
-        if (confirm("คุณยังไม่ได้เพิ่ม bot เป็นเพื่อน เราขอแนะนำให้เพิ่ม bot เป็นเพื่อนคุณตอนนี้")) {
+        if (confirm("คุณยังไม่ได้เพิ่ม bot เป็นเพื่อน")) {
           window.location = "https://line.me/R/ti/p/@838sdomn"
         }
       }
