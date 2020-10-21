@@ -59,7 +59,17 @@
 
       function openWindow() {}
 
-      async function getFriendship() {}
+      async function getFriendship() {
+        const friend = await liff.getFriendship()
+        //ดูว่่า user เป็นเพื่อนกับแชทบอทหรือยัง
+        document.getElementById("friendship").append(friend.friendFlag)
+        //ถ้า user ยังไม่เป็นเพื่อนกับแชทบอทให้ถามว่าต้องการเพิ่มเพื่อนไหม
+        if(!friend.friendFlag){
+          if(confirm("คุณยังไม่ได้เพิ่ม bot เป็นเพื่อน เราขอแนะนำให้เพิ่ม bot เป็นเพื่อนคุณตอนนี้"))
+            window.location="https://line.me/R/ti/p/@838sdomn"
+        }
+
+      }
 
       async function sendMsg() {
         if (liff.getContext().type !== "none") {
@@ -112,7 +122,7 @@
         getEnvironment();
         getUserProfile();
         getContext();
-        // getFriendship()
+        getFriendship()
         // createUniversalLink()
       }
       main();
