@@ -59,17 +59,28 @@
 
     function openWindow() { }
 
-    async function getFriendship() {
-      const friend = await liff.getFriendship()
-      //ดูว่่า user เป็นเพื่อนกับแชทบอทหรือยัง
-      document.getElementById("friendship").append(friend.friendFlag)
-      //ถ้า user ยังไม่เป็นเพื่อนกับแชทบอทให้ถามว่าต้องการเพิ่มเพื่อนไหม
-      if (!friend.friendFlag) {
-        if (confirm("คุณยังไม่ได้เพิ่ม bot เป็นเพื่อน จะเพิ่มเลยไหม?")) {
-          window.location = "https://line.me/R/ti/p/@781kafrq"
-        }
-      }
+    // async function getFriendship() {
+    //   const friend = await liff.getFriendship()
+    //   //ดูว่่า user เป็นเพื่อนกับแชทบอทหรือยัง
+    //   document.getElementById("friendship").append(friend.friendFlag)
+    //   //ถ้า user ยังไม่เป็นเพื่อนกับแชทบอทให้ถามว่าต้องการเพิ่มเพื่อนไหม
+    //   if (!friend.friendFlag) {
+    //     if (confirm("คุณยังไม่ได้เพิ่ม bot เป็นเพื่อน จะเพิ่มเลยไหม?")) {
+    //       window.location = "https://line.me/R/ti/p/@781kafrq"
+    //     }
+    //   }
 
+    // }
+
+    function getFriendship() {
+      liff.getFriendship().then(data => {
+        if (data.friendFlag) {
+          // something you want to do
+        } else {
+          // not friend or being blocked, force to add friend
+          window.location = 'https://line.me/R/ti/p/<OA_BASICID>'
+        }
+      })
     }
 
     async function sendMsg() {
