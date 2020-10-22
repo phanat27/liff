@@ -71,16 +71,14 @@
     //   }
 
     // }
-
-    function getFriendship() {
-      liff.getFriendship().then(data => {
-        if (data.friendFlag) {
-          // something you want to do
-        } else {
-          // not friend or being blocked, force to add friend
-          window.location = 'https://line.me/R/ti/p/@781kafrq'
+    async function getFriendship() {
+      const friend = await liff.getFriendship()
+      document.getElementById("friendship").append(friend.friendFlag)
+      if (!friend.friendFlag) {
+        if (confirm("คุณยังไม่ได้เพิ่ม Bot เป็นเพื่อน จะเพิ่มเลยไหม?")) {
+          window.location = "https://line.me/R/ti/p/@781kafrq"
         }
-      })
+      }
     }
 
     async function sendMsg() {
