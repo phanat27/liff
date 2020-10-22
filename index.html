@@ -93,22 +93,12 @@
       //ถ้า user ยังไม่เป็นเพื่อนกับแชทบอทให้ถามว่าต้องการเพิ่มเพื่อนไหม
       if (!friend.friendFlag) {
         if (confirm("คุณยังไม่ได้เพิ่ม bot เป็นเพื่อน จะเพิ่มเลยไหม?")) {
-          window.location = "https://line.me/R/ti/p/@781kafrq"
+          window.location = "https://line.me/R/ti/p/@838sdomn"
         }
       }
 
     }
     
-    // async function getFriendship() {
-    //   const friend = await liff.getFriendship()
-    //   document.getElementById("friendship").append(friend.friendFlag)
-    //   if (!friend.friendFlag) {
-    //     if (confirm("คุณยังไม่ได้เพิ่ม Bot เป็นเพื่อน จะเพิ่มเลยไหม?")) {
-    //       window.location = "https://line.me/R/ti/p/@781kafrq"
-    //     }
-    //   }
-    // }
-
     async function sendMsg() {
       if (liff.getContext().type !== "none") {
         await liff.sendMessages([
