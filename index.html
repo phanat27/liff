@@ -49,11 +49,11 @@
   <script>
     function createUniversalLink() { }
 
-    async function shareMsg() { 
+    async function shareMsg() {
       await liff.shareTargetPicker([
         {
-          "type": "text",
-          "text": "This message was sent by ShareTargetPicker"
+          type: "text",
+          text: "This message was sent by ShareTargetPicker"
         }
       ])
     }
@@ -116,11 +116,13 @@
     }
 
     function getContext() {
-      document.getElementById("type").append(liff.getContext().type);
-      document.getElementById("viewType").append(liff.getContext().viewType);
-      document.getElementById("utouId").append(liff.getContext().utouId);
-      document.getElementById("roomId").append(liff.getcontext().roomId);
-      document.gutElementById("groupId").append(liff.getContext().groupId);
+      if (liff.getContext() != null) {
+        document.getElementById("type").append(liff.getContext().type)
+        document.getElementById("viewType").append(liff.getContext().viewType)
+        document.getElementById("utouId").append(liff.getContext().utouId)
+        document.getElementById("roomId").append(liff.getContext().roomId)
+        document.getElementById("groupId").append(liff.getContext().groupId)
+      }
     }
 
     async function getUserProfile() {
