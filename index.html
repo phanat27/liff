@@ -168,31 +168,50 @@
         }
     });
 
-    async function main() {
-      await liff.init({ liffId: "1655119577-P2EjOMpj" });
-      document.getElementById("isLoggedIn").append(liff.isLoggedIn())
-      // if(liff.isLoggedIn()){
-      // getEnvironment();
-      // getUserProfile();
-      // getContext();
-      // getFriendship();
-      // createUniversalLink()
-      // }else{
-      //   liff.login()
-      // }
+    // async function main() {
+    //   await liff.init({ liffId: "1655119577-P2EjOMpj" });
+    //   document.getElementById("isLoggedIn").append(liff.isLoggedIn())
+    //   // if(liff.isLoggedIn()){
+    //   // getEnvironment();
+    //   // getUserProfile();
+    //   // getContext();
+    //   // getFriendship();
+    //   // createUniversalLink()
+    //   // }else{
+    //   //   liff.login()
+    //   // }
 
-      // if(liff.isLoggedIn()){
-      getEnvironment();
-      getUserProfile();
-      getContext();
-      getFriendship();
-      createUniversalLink()
-      // }else{
-      //   liff.login()
-      // }
+    //   // if(liff.isLoggedIn()){
+    //   getEnvironment();
+    //   getUserProfile();
+    //   getContext();
+    //   getFriendship();
+    //   createUniversalLink()
+    //   // }else{
+    //   //   liff.login()
+    //   // }
 
-    }
-    main();
+    // }
+    // main();
+    /**
+* Initialize LIFF
+* @param {string} myLiffId The LIFF ID of the selected element
+*/
+let myLiffId = "1655119577-P2EjOMpj";
+function initializeLiff(myLiffId) {
+    liff
+        .init({
+            liffId: myLiffId
+        })
+        .then(() => {
+            // start to use LIFF's api
+            initializeApp();
+        })
+        .catch((err) => {
+            document.getElementById("liffAppContent").classList.add('hidden');
+            document.getElementById("liffInitErrorMessage").classList.remove('hidden');
+        });
+}
   </script>
 </body>
 
