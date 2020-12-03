@@ -37,6 +37,8 @@
   <p id="universalLink2"><b>Universal Link with Query params:</b></p>
   <p><a href="liff/path/?param=9">Link to Path</a></p>
 
+  <button id="liffLoginButton">Log in</button>
+  <button id="liffLogoutButton">Log out</button>
   <button id="btnMsg" onclick="sendMsg()">Send Message</button>
   <button id="btnShare" onclick="shareMsg()">Share Target Picker</button>
   <button onclick="openWindow()">Open Window</button>
@@ -150,11 +152,19 @@
         document.getElementById("btnClose").style.display = "none";
       }
     }
-        // login call, only when external browser is used
-        document.getElementById('liffLoginButton').addEventListener('click', function() {
-        if (!liff.isLoggedIn()) {
-            // set `redirectUri` to redirect the user to a URL other than the front page of your LIFF app.
-            liff.login();
+    // login call, only when external browser is used
+    document.getElementById('liffLoginButton').addEventListener('click', function() {
+      if (!liff.isLoggedIn()) {
+         // set `redirectUri` to redirect the user to a URL other than the front page of your LIFF app.
+        liff.login();
+      }
+    });
+
+    // logout call only when external browse
+    document.getElementById('liffLogoutButton').addEventListener('click', function() {
+        if (liff.isLoggedIn()) {
+            liff.logout();
+            window.location.reload();
         }
     });
 
@@ -170,6 +180,7 @@
       // }else{
       //   liff.login()
       // }
+
       // if(liff.isLoggedIn()){
       getEnvironment();
       getUserProfile();
