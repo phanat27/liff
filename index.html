@@ -147,7 +147,19 @@
         document.getElementById("btnClose").style.display = "none";
       }
     }
+    document.getElementById('liffLoginButton').addEventListener('click', function() {
+        if (!liff.isLoggedIn()) {
+            liff.login();
+        }
+    });
 
+    // logout call only when external browse
+    document.getElementById('liffLogoutButton').addEventListener('click', function() {
+        if (liff.isLoggedIn()) {
+            liff.logout();
+            window.location.reload();
+        }
+    });
     async function main() {
       await liff.init({ liffId: "1655119577-P2EjOMpj" });
       // document.getElementById("isLoggedIn").append(liff.isLoggedIn())
@@ -160,20 +172,7 @@
       // }else{
       //   liff.login()
       // }
-      document.getElementById('liffLoginButton').addEventListener('click', function() {
-        if (!liff.isLoggedIn()) {
-            // set `redirectUri` to redirect the user to a URL other than the front page of your LIFF app.
-            liff.login();
-        }
-    });
-
-    // logout call only when external browse
-    document.getElementById('liffLogoutButton').addEventListener('click', function() {
-        if (liff.isLoggedIn()) {
-            liff.logout();
-            window.location.reload();
-        }
-    });
+     
     }
     main();
     
