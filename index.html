@@ -145,6 +145,13 @@
         document.getElementById("btnClose").style.display = "none";
       }
     }
+        // login call, only when external browser is used
+        document.getElementById('liffLoginButton').addEventListener('click', function() {
+        if (!liff.isLoggedIn()) {
+            // set `redirectUri` to redirect the user to a URL other than the front page of your LIFF app.
+            liff.login();
+        }
+    });
 
     async function main() {
       await liff.init({ liffId: "1655119577-P2EjOMpj" });
