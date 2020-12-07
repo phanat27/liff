@@ -101,6 +101,28 @@
 
     }
     
+    this.value1 = [
+                              {
+                                "type": "text",
+                                "text": "กรีนโอ๊ค (Green Oak Lettuce)",
+                                "size": "sm",
+                                "color": "#666666",
+                                "flex": 4,
+                                "contents": []
+                              },
+                              {
+                                "type": "text",
+                                "text": "150 บาท ",
+                                "size": "sm",
+                                "color": "#666666",
+                                "flex": 4,
+                                "align": "end",
+                                "contents": []
+                              }
+                            ]
+                              
+    console.log("value1 : ", this.value1);                       
+
     async function sendMsg() {
       if (liff.getContext().type !== "none") {
         await liff.sendMessages([
@@ -189,25 +211,7 @@
                             "type": "box",
                             "layout": "baseline",
                             "spacing": "sm",
-                            "contents": [
-                              {
-                                "type": "text",
-                                "text": "กรีนโอ๊ค (Green Oak Lettuce)",
-                                "size": "sm",
-                                "color": "#666666",
-                                "flex": 4,
-                                "contents": []
-                              },
-                              {
-                                "type": "text",
-                                "text": "150 บาท ",
-                                "size": "sm",
-                                "color": "#666666",
-                                "flex": 4,
-                                "align": "end",
-                                "contents": []
-                              }
-                            ]
+                            "contents": this.value1
                           },
                           {
                             "type": "box",
