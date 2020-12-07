@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport"
     content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover" />
-  <title>My LIFF V.2.8 app</title>
+  <title>My LIFF V.2.9 app</title>
   <link rel="stylesheet" href="css/style.css" media="all" />
 </head>
 
@@ -123,31 +123,60 @@
 ]
 
 
-    this.ele = product.map((res)=>{
-      return {
+    this.ele = product.map((obj, i)=>{
+      return                  {
+                            "type": "box",
+                            "layout": "horizontal",
+                            "spacing": "sm",
+                            "contents": [
+                              {
+                                "type": "text",
+                                "text": "ช่องทางรับสินค้า : รับสินค้าที่ร้าน",
+                                "size": "sm",
+                                "color": "#666666",
+                                "flex": 3,
+                                "contents": []
+                              }
+                            ]
+                          },
+                          {
                             "type": "box",
                             "layout": "baseline",
                             "spacing": "sm",
-                            "contents":[
+                            "contents": [
                               {
                                 "type": "text",
-                                "text":   res.name,
-                                "size": "sm",
+                                "text": "รายการสั่งซื้อ",
+                                "weight": "bold",
+                                "size": "md",
                                 "color": "#666666",
                                 "flex": 4,
+                                "wrap": true,
+                                "contents": []
+                              }
+                            ]
+                          },
+                          {
+                            "type": "box",
+                            "layout": "horizontal",
+                            "contents": [
+                              {
+                                "type": "text",
+                                "text": obj.name,
+                                "size": "sm",
+                                "align": "start",
                                 "contents": []
                               },
                               {
                                 "type": "text",
-                                "text": res.total+"บาท",
+                                "text": obj.total+"บาท",
                                 "size": "sm",
-                                "color": "#666666",
-                                "flex": 4,
                                 "align": "end",
                                 "contents": []
                               }
                             ]
                           }
+                        
     })
     
     this.value1 =  {
@@ -228,61 +257,62 @@
                         "layout": "vertical",
                         "spacing": "sm",
                         "margin": "lg",
-                        "contents": [
-                          {
-                            "type": "box",
-                            "layout": "horizontal",
-                            "spacing": "sm",
-                            "contents": [
-                              {
-                                "type": "text",
-                                "text": "ช่องทางรับสินค้า : รับสินค้าที่ร้าน",
-                                "size": "sm",
-                                "color": "#666666",
-                                "flex": 3,
-                                "contents": []
-                              }
-                            ]
-                          },
-                          {
-                            "type": "box",
-                            "layout": "baseline",
-                            "spacing": "sm",
-                            "contents": [
-                              {
-                                "type": "text",
-                                "text": "รายการสั่งซื้อ",
-                                "weight": "bold",
-                                "size": "md",
-                                "color": "#666666",
-                                "flex": 4,
-                                "wrap": true,
-                                "contents": []
-                              }
-                            ]
-                          },
-                          this.ele,
-                          {
-                            "type": "box",
-                            "layout": "horizontal",
-                            "contents": [
-                              {
-                                "type": "text",
-                                "text": "เรดโอ๊ค (Red Oak Lettuce)",
-                                "size": "sm",
-                                "align": "start",
-                                "contents": []
-                              },
-                              {
-                                "type": "text",
-                                "text": "150 บาท",
-                                "size": "sm",
-                                "align": "end",
-                                "contents": []
-                              }
-                            ]
-                          }
-                        ]
+                        "contents": this.ele
+                        // [
+                        //   {
+                        //     "type": "box",
+                        //     "layout": "horizontal",
+                        //     "spacing": "sm",
+                        //     "contents": [
+                        //       {
+                        //         "type": "text",
+                        //         "text": "ช่องทางรับสินค้า : รับสินค้าที่ร้าน",
+                        //         "size": "sm",
+                        //         "color": "#666666",
+                        //         "flex": 3,
+                        //         "contents": []
+                        //       }
+                        //     ]
+                        //   },
+                        //   {
+                        //     "type": "box",
+                        //     "layout": "baseline",
+                        //     "spacing": "sm",
+                        //     "contents": [
+                        //       {
+                        //         "type": "text",
+                        //         "text": "รายการสั่งซื้อ",
+                        //         "weight": "bold",
+                        //         "size": "md",
+                        //         "color": "#666666",
+                        //         "flex": 4,
+                        //         "wrap": true,
+                        //         "contents": []
+                        //       }
+                        //     ]
+                        //   },
+                        //   this.ele,
+                        //   {
+                        //     "type": "box",
+                        //     "layout": "horizontal",
+                        //     "contents": [
+                        //       {
+                        //         "type": "text",
+                        //         "text": "เรดโอ๊ค (Red Oak Lettuce)",
+                        //         "size": "sm",
+                        //         "align": "start",
+                        //         "contents": []
+                        //       },
+                        //       {
+                        //         "type": "text",
+                        //         "text": "150 บาท",
+                        //         "size": "sm",
+                        //         "align": "end",
+                        //         "contents": []
+                        //       }
+                        //     ]
+                        //   }
+                      //  ]
                       },
                       {
                         "type": "box",
@@ -406,20 +436,20 @@
         }
     });
     async function main() {
-      console.log("value1 : ",JSON.stringify(this.value1) );   
-      console.log("ele : ", this.ele); 
+      // console.log("value1 : ",JSON.stringify(this.value1) );   
+      console.log("ele : ", JSON.stringify(this.ele)); 
 
       await liff.init({ liffId: "1655119577-P2EjOMpj" });
       document.getElementById("isLoggedIn").append(liff.isLoggedIn())
-      if(liff.isLoggedIn()){
+      // if(liff.isLoggedIn()){
       getEnvironment();
       getUserProfile();
       getContext();
       getFriendship();
       createUniversalLink()
-      }else{
-        liff.login()
-      }
+      // }else{
+      //   liff.login()
+      // }
 
     }
     main();
