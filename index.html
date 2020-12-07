@@ -179,32 +179,54 @@
                         
     })
     
-    this.value1 =  {
-                            "type": "box",
-                            "layout": "baseline",
-                            "spacing": "sm",
-                            "contents":[
-                              {
-                                "type": "text",
-                                "text":   this.ele,
-                                "size": "sm",
-                                "color": "#666666",
-                                "flex": 4,
-                                "contents": []
-                              },
-                              {
-                                "type": "text",
-                                "text": "150 บาท ",
-                                "size": "sm",
-                                "color": "#666666",
-                                "flex": 4,
-                                "align": "end",
-                                "contents": []
-                              }
-                            ]
+    this.footer =   {
+                    "type": "box",
+                    "layout": "horizontal",
+                    "flex": 1,
+                    "spacing": "xs",
+                    "margin": "xs",
+                    "contents": [
+                      {
+                        "type": "button",
+                        "action": {
+                          "type": "uri",
+                          "label": "ซื้อสินค้าเพิ่ม",
+                          "uri": "https://liff.line.me/1655119577-P2EjOMpj"
+                        },
+                        "color": "#21AC26ED",
+                        "height": "sm",
+                        "style": "primary"
+                      }
+                    ]
+                  }  
+
+    this.productTotal ={
+                        "type": "box",
+                        "layout": "horizontal",
+                        "contents": [
+                          {
+                            "type": "text",
+                            "text": "ยอดสุทธิ 1 รายการ",
+                            "align": "start",
+                            "contents": []
+                          },
+                          {
+                            "type": "text",
+                            "text": "150 บาท",
+                            "align": "end",
+                            "contents": []
                           }
-                              
-                  
+                        ]
+     }             
+
+     this.paymentChanel ={
+                        "type": "text",
+                        "text": "ช่องทางชำระเงิน  :  โอนผ่านบัญชีธนาคาร",
+                        "size": "sm",
+                        "align": "start",
+                        "wrap": true,
+                        "contents": []       
+     }
 
     async function sendMsg() { 
       if (liff.getContext().type !== "none") {
@@ -287,126 +309,12 @@
                         "spacing": "sm",
                         "margin": "lg",
                         "contents": this.ele
-                        // [
-                        //   {
-                        //     "type": "box",
-                        //     "layout": "horizontal",
-                        //     "spacing": "sm",
-                        //     "contents": [
-                        //       {
-                        //         "type": "text",
-                        //         "text": "ช่องทางรับสินค้า : รับสินค้าที่ร้าน",
-                        //         "size": "sm",
-                        //         "color": "#666666",
-                        //         "flex": 3,
-                        //         "contents": []
-                        //       }
-                        //     ]
-                        //   },
-                        //   {
-                        //     "type": "box",
-                        //     "layout": "baseline",
-                        //     "spacing": "sm",
-                        //     "contents": [
-                        //       {
-                        //         "type": "text",
-                        //         "text": "รายการสั่งซื้อ",
-                        //         "weight": "bold",
-                        //         "size": "md",
-                        //         "color": "#666666",
-                        //         "flex": 4,
-                        //         "wrap": true,
-                        //         "contents": []
-                        //       }
-                        //     ]
-                        //   },
-                        //   this.ele,
-                        //   {
-                        //     "type": "box",
-                        //     "layout": "horizontal",
-                        //     "contents": [
-                        //       {
-                        //         "type": "text",
-                        //         "text": "เรดโอ๊ค (Red Oak Lettuce)",
-                        //         "size": "sm",
-                        //         "align": "start",
-                        //         "contents": []
-                        //       },
-                        //       {
-                        //         "type": "text",
-                        //         "text": "150 บาท",
-                        //         "size": "sm",
-                        //         "align": "end",
-                        //         "contents": []
-                        //       }
-                        //     ]
-                        //   }
-                      //  ]
                       },
-                      {
-                        "type": "box",
-                        "layout": "horizontal",
-                        "contents": [
-                          {
-                            "type": "text",
-                            "text": "ยอดสุทธิ 1 รายการ",
-                            "align": "start",
-                            "contents": []
-                          },
-                          {
-                            "type": "text",
-                            "text": "150 บาท",
-                            "align": "end",
-                            "contents": []
-                          }
-                        ]
-                      },
-                      {
-                        "type": "box",
-                        "layout": "vertical",
-                        "contents": [
-                          {
-                            "type": "spacer"
-                          },
-                          {
-                            "type": "text",
-                            "text": "ธุรกรรมการเงิน",
-                            "weight": "bold",
-                            "align": "start",
-                            "contents": []
-                          }
-                        ]
-                      },
-                      {
-                        "type": "text",
-                        "text": "ช่องทางชำระเงิน  :  โอนผ่านบัญชีธนาคาร",
-                        "size": "sm",
-                        "align": "start",
-                        "wrap": true,
-                        "contents": []
-                      }
+                      this.productTotal,
+                      this.productChanel
                     ]
                   },
-                  "footer": {
-                    "type": "box",
-                    "layout": "horizontal",
-                    "flex": 1,
-                    "spacing": "xs",
-                    "margin": "xs",
-                    "contents": [
-                      {
-                        "type": "button",
-                        "action": {
-                          "type": "uri",
-                          "label": "ซื้อสินค้าเพิ่ม",
-                          "uri": "https://liff.line.me/1655119577-P2EjOMpj"
-                        },
-                        "color": "#21AC26ED",
-                        "height": "sm",
-                        "style": "primary"
-                      }
-                    ]
-                  }
+                  "footer": this.footer
                 }
           },
         ]).then(function() {
