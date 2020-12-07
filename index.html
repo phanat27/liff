@@ -101,7 +101,11 @@
 
     }
     
-    this.value1 = [
+    this.value1 =  {
+                            "type": "box",
+                            "layout": "baseline",
+                            "spacing": "sm",
+                            "contents":[
                               {
                                 "type": "text",
                                 "text": "กรีนโอ๊ค (Green Oak Lettuce)",
@@ -120,6 +124,7 @@
                                 "contents": []
                               }
                             ]
+                          }
                               
     console.log("value1 : ", this.value1);                       
 
@@ -207,12 +212,7 @@
                               }
                             ]
                           },
-                          {
-                            "type": "box",
-                            "layout": "baseline",
-                            "spacing": "sm",
-                            "contents": this.value1
-                          },
+                          this.value1,
                           {
                             "type": "box",
                             "layout": "horizontal",
