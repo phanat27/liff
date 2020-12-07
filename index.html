@@ -199,8 +199,8 @@
                       }
                     ]
                   }  
-
-    this.productTotal ={
+                  
+     this.productTotal ={
                         "type": "box",
                         "layout": "horizontal",
                         "contents": [
@@ -218,15 +218,6 @@
                           }
                         ]
      }             
-
-     this.paymentChanel ={
-                        "type": "text",
-                        "text": "ช่องทางชำระเงิน  :  โอนผ่านบัญชีธนาคาร",
-                        "size": "sm",
-                        "align": "start",
-                        "wrap": true,
-                        "contents": []       
-     }
 
     async function sendMsg() { 
       if (liff.getContext().type !== "none") {
@@ -310,8 +301,48 @@
                         "margin": "lg",
                         "contents": this.ele
                       },
-                      // this.productTotal,
-                      // this.productChanel
+                      {
+                        "type": "box",
+                        "layout": "horizontal",
+                        "contents": [
+                          {
+                            "type": "text",
+                            "text": "ยอดสุทธิ 1 รายการ",
+                            "align": "start",
+                            "contents": []
+                          },
+                          {
+                            "type": "text",
+                            "text": "150 บาท",
+                            "align": "end",
+                            "contents": []
+                          }
+                        ]
+                      },
+                      {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                          {
+                            "type": "spacer"
+                          },
+                          {
+                            "type": "text",
+                            "text": "ธุรกรรมการเงิน",
+                            "weight": "bold",
+                            "align": "start",
+                            "contents": []
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "ช่องทางชำระเงิน: โอนผ่านบัญชีธนาคาร",
+                        "size": "sm",
+                        "align": "start",
+                        "wrap": true,
+                        "contents": []
+                      }
                     ]
                   },
                   "footer": this.footer
