@@ -100,6 +100,55 @@
       }
 
     }
+
+    let product = [
+  {
+    "name": "Breitling Colt Chronometre",
+    "image": "https://backend.flowsale.com/client/image/cache/catalog/Vn97VTyu1q/Breitling Colt/S__8732676-200x200.jpg",
+    "quantity": 1,
+    "total": 52000
+  },
+  {
+    "name": "Hamilton Frogman Red",
+    "image": "https://backend.flowsale.com/client/image/cache/catalog/Vn97VTyu1q/Hamilton Frogman/S__9109506-200x200.jpg",
+    "quantity": 1,
+    "total": 23000
+  },
+  {
+    "name": "Fossil Townsman Chronograph",
+    "image": "https://backend.flowsale.com/client/image/cache/catalog/Vn97VTyu1q/Fossil/4-200x200.jpg",
+    "quantity": 1,
+    "total": 3700
+  }
+]
+
+
+    this.ele = product.map((res)=>{
+      return {
+                            "type": "box",
+                            "layout": "baseline",
+                            "spacing": "sm",
+                            "contents":[
+                              {
+                                "type": "text",
+                                "text":   res.name,
+                                "size": "sm",
+                                "color": "#666666",
+                                "flex": 4,
+                                "contents": []
+                              },
+                              {
+                                "type": "text",
+                                "text": res.total+"บาท",
+                                "size": "sm",
+                                "color": "#666666",
+                                "flex": 4,
+                                "align": "end",
+                                "contents": []
+                              }
+                            ]
+                          }
+    })
     
     this.value1 =  {
                             "type": "box",
@@ -108,7 +157,7 @@
                             "contents":[
                               {
                                 "type": "text",
-                                "text": "กรีนโอ๊ค (Green Oak Lettuce)",
+                                "text":   this.ele,
                                 "size": "sm",
                                 "color": "#666666",
                                 "flex": 4,
@@ -126,9 +175,9 @@
                             ]
                           }
                               
-    console.log("value1 : ", this.value1);                       
+                  
 
-    async function sendMsg() {
+    async function sendMsg() { 
       if (liff.getContext().type !== "none") {
         await liff.sendMessages([
           {
@@ -212,7 +261,7 @@
                               }
                             ]
                           },
-                          this.value1,
+                          this.ele,
                           {
                             "type": "box",
                             "layout": "horizontal",
@@ -291,7 +340,7 @@
                         "action": {
                           "type": "uri",
                           "label": "ซื้อสินค้าเพิ่ม",
-                          "uri": "https://linecorp.com"
+                          "uri": "https://liff.line.me/1655119577-P2EjOMpj"
                         },
                         "color": "#21AC26ED",
                         "height": "sm",
@@ -334,7 +383,7 @@
       if (liff.isInClient()) {
         document.getElementById("btnLogOut").style.display = "none";
       } else {
-        document.getElementById("btnMsg").style.display = "none";
+        // document.getElementById("btnMsg").style.display = "none";
         document.getElementById("btnScanCode").style.display = "none";
         document.getElementById("btnClose").style.display = "none";
       }
@@ -353,18 +402,21 @@
         }
     });
     async function main() {
+      console.log("value1 : ",JSON.stringify(this.value1) );   
+      console.log("ele : ", this.ele); 
+
       await liff.init({ liffId: "1655119577-P2EjOMpj" });
       document.getElementById("isLoggedIn").append(liff.isLoggedIn())
-      if(liff.isLoggedIn()){
+      // if(liff.isLoggedIn()){
       getEnvironment();
       getUserProfile();
       getContext();
       getFriendship();
       createUniversalLink()
-      }else{
-        liff.login()
-      }
-     
+      // }else{
+      //   liff.login()
+      // }
+
     }
     main();
     
