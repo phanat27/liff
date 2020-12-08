@@ -300,17 +300,53 @@
                             "weight": "bold",
                             "align": "start",
                             "contents": []
-                          }
-                        ]
-                      },
-                      {
+                          },
+                          {
                         "type": "text",
-                        "text": "ช่องทางชำระเงิน: โอนผ่านบัญชีธนาคาร",
+                        "text": `ช่องทางชำระเงิน : ${this.payment.title}`,
+                        "weight": "bold",
                         "size": "sm",
                         "align": "start",
                         "wrap": true,
                         "contents": []
-                      }
+                        },
+                        {
+                         "type": "box",
+                         "layout": "vertical",
+                         "margin": "xxl",
+                         "contents": [
+                        {
+                          "type": "spacer",
+                        },
+                        {
+                          "type": "image",
+                          "url": `${this.BASE_URL_IMAGE}/${this.payment.option.qr}`,
+                          "size": "xl",
+                          "aspectMode": "cover",
+                        },
+                        {
+                          "type": "text",
+                          "text": `บัญชี : ${this.payment.option.account_name}`,
+                          "size": "sm",
+                          "color": "#000000FF",
+                          "align": "center",
+                          "gravity": "top",
+                          "margin": "xxl",
+                          "contents": []
+                        },
+                        {
+                          "type": "text",
+                          "text": `เลขที่บัญชี : ${this.payment.option.account_no}`,
+                          "size": "sm",
+                          "color": "#000000FF",
+                          "align": "center",
+                          "contents": []
+                        },
+                      ],
+                      } 
+                        ]
+                      },
+                     
                     ]
                   },
                   "footer": this.footer
