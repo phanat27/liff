@@ -185,8 +185,36 @@
                             "contents": []
                           }
                         ]
-     }             
+     }  
 
+     this.paymentChanel = {
+                          "type": "spacer",
+                        },
+                        {
+                          "type": "image",
+                          "url": "https://cf.shopee.co.th/file/c84a748d24857535b158a74e5941e75a",
+                          "size": "xl",
+                          "aspectMode": "cover",
+                        },
+                        {
+                          "type": "text",
+                          "text": `บัญชี : ........`,
+                          "size": "sm",
+                          "color": "#000000FF",
+                          "align": "center",
+                          "gravity": "top",
+                          "margin": "xxl",
+                          "contents": []
+                        },
+                        {
+                          "type": "text",
+                          "text": `เลขที่บัญชี : ......`,
+                          "size": "sm",
+                          "color": "#000000FF",
+                          "align": "center",
+                          "contents": []
+                        }
+                        
     async function sendMsg() { 
       if (liff.getContext().type !== "none") {
         await liff.sendMessages([
@@ -315,33 +343,33 @@
                          "layout": "vertical",
                          "margin": "xxl",
                          "contents": [
-                        {
-                          "type": "spacer",
-                        },
-                        {
-                          "type": "image",
-                          "url": "https://cf.shopee.co.th/file/c84a748d24857535b158a74e5941e75a",
-                          "size": "xl",
-                          "aspectMode": "cover",
-                        },
-                        {
-                          "type": "text",
-                          "text": `บัญชี : ........`,
-                          "size": "sm",
-                          "color": "#000000FF",
-                          "align": "center",
-                          "gravity": "top",
-                          "margin": "xxl",
-                          "contents": []
-                        },
-                        {
-                          "type": "text",
-                          "text": `เลขที่บัญชี : ......`,
-                          "size": "sm",
-                          "color": "#000000FF",
-                          "align": "center",
-                          "contents": []
-                        },
+                        // {
+                        //   "type": "spacer",
+                        // },
+                        // {
+                        //   "type": "image",
+                        //   "url": "https://cf.shopee.co.th/file/c84a748d24857535b158a74e5941e75a",
+                        //   "size": "xl",
+                        //   "aspectMode": "cover",
+                        // },
+                        // {
+                        //   "type": "text",
+                        //   "text": `บัญชี : ........`,
+                        //   "size": "sm",
+                        //   "color": "#000000FF",
+                        //   "align": "center",
+                        //   "gravity": "top",
+                        //   "margin": "xxl",
+                        //   "contents": []
+                        // },
+                        // {
+                        //   "type": "text",
+                        //   "text": `เลขที่บัญชี : ......`,
+                        //   "size": "sm",
+                        //   "color": "#000000FF",
+                        //   "align": "center",
+                        //   "contents": []
+                        // },
                       ],
                       } 
                         ]
