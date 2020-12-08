@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport"
     content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover" />
-  <title>My LIFF V.2.22 app</title>
+  <title>My LIFF V.2.23 app</title>
   <link rel="stylesheet" href="css/style.css" media="all" />
 </head>
 
@@ -124,27 +124,26 @@
 
 
     this.ele = product.map((obj, i)=>{
-      return            
-                          // {
-                          //   "type": "box",
-                          //   "layout": "horizontal",
-                          //   "contents": [
-                          //     {
-                          //       "type": "text",
-                          //       "text": obj.name,
-                          //       "size": "sm",
-                          //       "align": "start",
-                          //       "contents": []
-                          //     },
-                          //     {
-                          //       "type": "text",
-                          //       "text": obj.total+"บาท",
-                          //       "size": "sm",
-                          //       "align": "end",
-                          //       "contents": []
-                          //     }
-                          //   ]
-                          // }
+      return             {
+                            "type": "box",
+                            "layout": "horizontal",
+                            "contents": [
+                              {
+                                "type": "text",
+                                "text": obj.name,
+                                "size": "sm",
+                                "align": "start",
+                                "contents": []
+                              },
+                              {
+                                "type": "text",
+                                "text": obj.total+"บาท",
+                                "size": "sm",
+                                "align": "end",
+                                "contents": []
+                              }
+                            ]
+                          }
                         
     })
     
@@ -188,33 +187,34 @@
                         ]
      }  
 
-     this.paymentChanel = [{
-                          "type": "spacer",
-                        },
-                        {
-                          "type": "image",
-                          "url": "https://cf.shopee.co.th/file/c84a748d24857535b158a74e5941e75a",
-                          "size": "xl",
-                          "aspectMode": "cover",
-                        },
-                        {
-                          "type": "text",
-                          "text": `บัญชี : ........`,
-                          "size": "sm",
-                          "color": "#000000FF",
-                          "align": "center",
-                          "gravity": "top",
-                          "margin": "xxl",
-                          "contents": []
-                        },
-                        {
-                          "type": "text",
-                          "text": `เลขที่บัญชี : ......`,
-                          "size": "sm",
-                          "color": "#000000FF",
-                          "align": "center",
-                          "contents": []
-                        }
+     this.paymentChanel = [
+    // {
+    //                       "type": "spacer",
+    //                     },
+    //                     {
+    //                       "type": "image",
+    //                       "url": "https://cf.shopee.co.th/file/c84a748d24857535b158a74e5941e75a",
+    //                       "size": "xl",
+    //                       "aspectMode": "cover",
+    //                     },
+    //                     {
+    //                       "type": "text",
+    //                       "text": `บัญชี : ........`,
+    //                       "size": "sm",
+    //                       "color": "#000000FF",
+    //                       "align": "center",
+    //                       "gravity": "top",
+    //                       "margin": "xxl",
+    //                       "contents": []
+    //                     },
+    //                     {
+    //                       "type": "text",
+    //                       "text": `เลขที่บัญชี : ......`,
+    //                       "size": "sm",
+    //                       "color": "#000000FF",
+    //                       "align": "center",
+    //                       "contents": []
+    //                     }
 ]
     async function sendMsg() { 
       if (liff.getContext().type !== "none") {
