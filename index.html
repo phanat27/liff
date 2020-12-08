@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport"
     content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover" />
-  <title>My LIFF V.2.21 app</title>
+  <title>My LIFF V.2.20 app</title>
   <link rel="stylesheet" href="css/style.css" media="all" />
 </head>
 
@@ -187,12 +187,7 @@
                         ]
      }  
 
-     this.paymentChanel = {
-                         "type": "box",
-                         "layout": "vertical",
-                         "margin": "xxl",
-                         "contents": [ 
-                        {
+     this.paymentChanel = [{
                           "type": "spacer",
                         },
                         {
@@ -218,10 +213,8 @@
                           "color": "#000000FF",
                           "align": "center",
                           "contents": []
-                        },
-                      ],
-                      } 
-
+                        }
+]
     async function sendMsg() { 
       if (liff.getContext().type !== "none") {
         await liff.sendMessages([
@@ -344,12 +337,13 @@
                         "align": "start",
                         "wrap": true,
                         "contents": []
-                        }, this.paymentChanel 
-                      //   {
-                      //    "type": "box",
-                      //    "layout": "vertical",
-                      //    "margin": "xxl",
-                      //    "contents": [ 
+                        },
+                        {
+                         "type": "box",
+                         "layout": "vertical",
+                         "margin": "xxl",
+                         "contents":  this.paymentChanel 
+                      //   [ 
                       //   {
                       //     "type": "spacer",
                       //   },
@@ -377,8 +371,8 @@
                       //     "align": "center",
                       //     "contents": []
                       //   },
-                      // ],
-                      // } 
+                      // ]
+                      } 
                         ]
                       },
                      
