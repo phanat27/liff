@@ -9,6 +9,7 @@
 
 <body>
   <h1>Hello World!</h1>
+  <p id="version"><b>Version:</b> </p>
   <p id="param"><b>Query Param: </b></p>
   <img id="pictureUrl">
   <p id="userId"><b>userId:</b> </p>
@@ -26,6 +27,7 @@
   <script src="https://static.line-scdn.net/liff/edge/versions/2.8.0/sdk.js"></script>
   <script>
     async function getUserProfile() {
+      document.getElementById("version").append(liff.getVersion())
       const profile = await liff.getProfile()
       document.getElementById("pictureUrl").src = profile.pictureUrl
       document.getElementById("userId").append(profile.userId)
