@@ -16,7 +16,9 @@
   <p id="displayName"><b>displayName:</b> </p>
   <p id="statusMessage"><b>statusMessage:</b> </p>
   <p id="decodedIDToken"><b>email:</b> </p>
-  
+  <p id="universalLink1"><b>Universal Link:</b> </p>
+  <p id="universalLink2"><b>Universal Link with Query params:</b> </p>
+
   <script>
     // Query Params
     const queryString = decodeURIComponent(window.location.search);
@@ -26,6 +28,14 @@
 
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <script>
+    function createUniversalLink() {
+      const link1 = liff.permanentLink.createUrl()
+      document.getElementById("universalLink1").append(link1)
+
+      liff.permanentLink.setExtraQueryParam('param=9')
+      const link2 = liff.permanentLink.createUrl()
+      document.getElementById("universalLink2").append(link2)
+    }
     async function getUserProfile() {
       document.getElementById("version").append(liff.getVersion())
       const profile = await liff.getProfile()
