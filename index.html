@@ -1,39 +1,33 @@
-<!DOCTYPE html>
 <html>
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport"
-    content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover" />
-  <title>My LIFF V.2.23 app</title>
-  <link rel="stylesheet" href="css/style.css" media="all" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
+  <title>My LIFF App</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-  <p id="os"><b>OS:</b></p>
-  <p id="language"><b>Language:</b></p>
-  <p id="version"><b>Version:</b></p>
-  <p id="isInClient"><b>isInClient:</b></p>
-  <p id="accessToken"><b>AccessToken:</b></p>
-  <img id="pictureUrl" />
-  <p id="userId"><b>userId:</b></p>
-  <p id="displayName"><b>displayName:</b></p>
-  <p id="statusMessage"><b>statusMessage:</b></p>
-  <p id="decodedIDToken"><b>email:</b></p>
-  <p id="type"><b>type:</b></p>
-  <p id="viewType"><b>viewType:</b></p>
-  <p id="utouId"><b>utouId:</b></p>
-  <p id="roomId"><b>roomId:</b></p>
-  <p id="groupId"><b>groupId:</b></p>
-  <p id="friendship"><b>isFriendship:</b></p>
-  <p id="scanCode"><b>Code:</b></p>
-  <p id="isLoggedIn"><b>isLoggedIn:</b></p>
-  <p id="universalLink1"><b>Universal Link:</b></p>
-  <p id="universalLink2"><b>Universal Link with Query params:</b></p>
-  <p><a href="/path/?param=9">Link to Path</a></p>
+  <p id="os"><b>OS:</b> </p>
+  <p id="language"><b>Language:</b> </p>
+  <p id="version"><b>Version:</b> </p>
+  <p id="isInClient"><b>isInClient:</b> </p>
+  <p id="accessToken"><b>AccessToken:</b> </p>
+  <img id="pictureUrl">
+  <p id="userId"><b>userId:</b> </p>
+  <p id="displayName"><b>displayName:</b> </p>
+  <p id="statusMessage"><b>statusMessage:</b> </p>
+  <p id="decodedIDToken"><b>email:</b> </p>
+  <p id="type"><b>type:</b> </p>
+  <p id="viewType"><b>viewType:</b> </p>
+  <p id="utouId"><b>utouId:</b> </p>
+  <p id="roomId"><b>roomId:</b> </p>
+  <p id="groupId"><b>groupId:</b> </p>
+  <p id="friendship"><b>isFriendship:</b> </p>
+  <p id="scanCode"><b>Code:</b> </p>
+  <p id="isLoggedIn"><b>isLoggedIn:</b> </p>
+  <p id="universalLink1"><b>Universal Link:</b> </p>
+  <p id="universalLink2"><b>Universal Link with Query params:</b> </p>
+  <p><a href="liff/path/?param=9">Link to Path</a></p>
 
-  <button id="liffLoginButton">Log in</button>
-  <button id="liffLogoutButton">Log out</button>
   <button id="btnMsg" onclick="sendMsg()">Send Message</button>
   <button id="btnShare" onclick="shareMsg()">Share Target Picker</button>
   <button onclick="openWindow()">Open Window</button>
@@ -47,15 +41,15 @@
     console.log("Hello World!")
   </script>
 
-  <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  <script src="https://static.line-scdn.net/liff/edge/versions/2.7.1/sdk.js"></script>
   <script>
-   async function createUniversalLink() {
+    function createUniversalLink() {
       const link1 = liff.permanentLink.createUrl()
       document.getElementById("universalLink1").append(link1)
 
-      await liff.permanentLink.setExtraQueryParam('param=9')
+      liff.permanentLink.setExtraQueryParam('param=9')
       const link2 = liff.permanentLink.createUrl()
-      document.getElementById("universalLink2").app(link2)
+      document.getElementById("universalLink2").append(link2)
     }
 
     async function shareMsg() {
@@ -70,7 +64,7 @@
     function logOut() {
       liff.logout()
       window.location.reload()
-     }
+    }
 
     function closed() {
       liff.closeWindow()
@@ -80,7 +74,7 @@
       const result = await liff.scanCode()
       document.getElementById("scanCode").append(result.value)
     }
-
+    
     function openWindow() {
       liff.openWindow({
         url: "https://line.me",
@@ -90,276 +84,24 @@
 
     async function getFriendship() {
       const friend = await liff.getFriendship()
-      //ดูว่่า user เป็นเพื่อนกับแชทบอทหรือยัง
       document.getElementById("friendship").append(friend.friendFlag)
-      //ถ้า user ยังไม่เป็นเพื่อนกับแชทบอทให้ถามว่าต้องการเพิ่มเพื่อนไหม
       if (!friend.friendFlag) {
-        if (confirm("คุณยังไม่ได้เพิ่ม bot เป็นเพื่อน จะเพิ่มเลยไหม?")) {
-          window.location = "https://line.me/R/ti/p/@838sdomn"
+        if (confirm("คุณยังไม่ได้เพิ่ม Bot เป็นเพื่อน จะเพิ่มเลยไหม?")) {
+          window.location = "https://line.me/R/ti/p/@1655119577-P2EjOMpj"
         }
       }
-
     }
 
-    let product = [
-  {
-    "name": "Breitling Colt Chronometre",
-    "image": "https://backend.flowsale.com/client/image/cache/catalog/Vn97VTyu1q/Breitling Colt/S__8732676-200x200.jpg",
-    "quantity": 1,
-    "total": 52000
-  },
-  {
-    "name": "Hamilton Frogman Red",
-    "image": "https://backend.flowsale.com/client/image/cache/catalog/Vn97VTyu1q/Hamilton Frogman/S__9109506-200x200.jpg",
-    "quantity": 1,
-    "total": 23000
-  },
-  {
-    "name": "Fossil Townsman Chronograph",
-    "image": "https://backend.flowsale.com/client/image/cache/catalog/Vn97VTyu1q/Fossil/4-200x200.jpg",
-    "quantity": 1,
-    "total": 3700
-  }
-]
-
-
-    this.ele = product.map((obj, i)=>{
-      return             {
-                            "type": "box",
-                            "layout": "horizontal",
-                            "contents": [
-                              {
-                                "type": "text",
-                                "text": obj.name,
-                                "size": "sm",
-                                "align": "start",
-                                "contents": []
-                              },
-                              {
-                                "type": "text",
-                                "text": obj.total+"บาท",
-                                "size": "sm",
-                                "align": "end",
-                                "contents": []
-                              }
-                            ]
-                          }
-                        
-    })
-    
-    this.footer =   {
-                    "type": "box",
-                    "layout": "horizontal",
-                    "flex": 1,
-                    "spacing": "xs",
-                    "margin": "xs",
-                    "contents": [
-                      {
-                        "type": "button",
-                        "action": {
-                          "type": "uri",
-                          "label": "ซื้อสินค้าเพิ่ม",
-                          "uri": "https://liff.line.me/1655119577-P2EjOMpj"
-                        },
-                        "color": "#21AC26ED",
-                        "height": "sm",
-                        "style": "primary"
-                      }
-                    ]
-                  }  
-                  
-     this.productTotal ={
-                        "type": "box",
-                        "layout": "horizontal",
-                        "contents": [
-                          {
-                            "type": "text",
-                            "text": "ยอดสุทธิ 1 รายการ",
-                            "align": "start",
-                            "contents": []
-                          },
-                          {
-                            "type": "text",
-                            "text": "150 บาท",
-                            "align": "end",
-                            "contents": []
-                          }
-                        ]
-     }  
-
-     this.paymentChanel = [
-    {
-                          "type": "spacer",
-                        },
-                        {
-                          "type": "image",
-                          "url": "https://cf.shopee.co.th/file/c84a748d24857535b158a74e5941e75a",
-                          "size": "xl",
-                          "aspectMode": "cover",
-                        },
-                        {
-                          "type": "text",
-                          "text": `บัญชี : ........`,
-                          "size": "sm",
-                          "color": "#000000FF",
-                          "align": "center",
-                          "gravity": "top",
-                          "margin": "xxl",
-                          "contents": []
-                        },
-                        {
-                          "type": "text",
-                          "text": `เลขที่บัญชี : ......`,
-                          "size": "sm",
-                          "color": "#000000FF",
-                          "align": "center",
-                          "contents": []
-                        }
-]
-    async function sendMsg() { 
+    async function sendMsg() {
       if (liff.getContext().type !== "none") {
         await liff.sendMessages([
           {
-            "type": "flex",
-              "altText": `หมายเลขสั่งซื้อ`,
-              "contents": {
-                  "type": "bubble",
-                  "header": {
-                    "type": "box",
-                    "layout": "vertical",
-                    "flex": 0,
-                    "contents": [
-                      {
-                        "type": "spacer",
-                        "size": "xs"
-                      }
-                    ]
-                  },
-                  "hero": {
-                    "type": "image",
-                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_3_movie.png",
-                    "size": "lg",
-                    "aspectRatio": "20:13",
-                    "aspectMode": "cover",
-                    "action": {
-                      "type": "uri",
-                      "label": "Action",
-                      "uri": "https://linecorp.com/"
-                    }
-                  },
-                  "body": {
-                    "type": "box",
-                    "layout": "vertical",
-                    "spacing": "md",
-                    "contents": [
-                      {
-                        "type": "text",
-                        "text": "หมายเลขสั่งซื้อ : 00001",
-                        "weight": "bold",
-                        "size": "lg",
-                        "align": "center",
-                        "gravity": "center",
-                        "wrap": true,
-                        "contents": []
-                      },
-                      {
-                    "type": "box",
-                    "layout": "vertical",
-                    "contents": [
-                      {
-                        "type": "text",
-                        "text": "ช่องทางรับสินค้า : รับสินค้าที่ร้าน",
-                        "size": "md",
-                        "contents": []
-                      }
-                    ]
-                  },
-                  {
-                    "type": "box",
-                    "layout": "baseline",
-                    "spacing": "sm",
-                    "contents": [
-                      {
-                        "type": "text",
-                        "text": "รายการสั่งซื้อ",
-                        "weight": "bold",
-                        "size": "md",
-                        "color": "#666666",
-                        "flex": 4,
-                        "wrap": true,
-                        "contents": []
-                      }
-                    ]
-                  },
-                  {
-                        "type": "box",
-                        "layout": "vertical",
-                        "spacing": "sm",
-                        "margin": "lg",
-                        "contents": this.ele
-                      },
-                      {
-                        "type": "box",
-                        "layout": "horizontal",
-                        "contents": [
-                          {
-                            "type": "text",
-                            "text": "ยอดสุทธิ 1 รายการ",
-                            "align": "start",
-                            "contents": []
-                          },
-                          {
-                            "type": "text",
-                            "text": "150 บาท",
-                            "align": "end",
-                            "contents": []
-                          }
-                        ]
-                      },
-                      {
-                        "type": "box",
-                        "layout": "vertical",
-                        "contents": [
-                          {
-                            "type": "spacer"
-                          },
-                          {
-                            "type": "text",
-                            "text": "ธุรกรรมการเงิน",
-                            "weight": "bold",
-                            "align": "start",
-                            "contents": []
-                          },
-                          {
-                        "type": "text",
-                        "text": `ช่องทางชำระเงิน : ....`,
-                        "weight": "bold",
-                        "size": "sm",
-                        "align": "start",
-                        "wrap": true,
-                        "contents": []
-                        },
-                        {
-                         "type": "box",
-                         "layout": "vertical",
-                         "margin": "xxl",
-                         "contents":  this.paymentChanel 
-                    
-                      } 
-                        ]
-                      },
-                     
-                    ]
-                  },
-                  "footer": this.footer
-                }
-          },
-        ]).then(function() {
-            window.alert("Message sent");
-          })
-          .catch(function(error) {
-            window.alert("Error sending message: " + error);
-          });
+            "type": "sticker",
+            "stickerId": 1,
+            "packageId": 1
+          }
+        ])
+        alert("Message sent")
       }
     }
 
@@ -374,63 +116,45 @@
     }
 
     async function getUserProfile() {
-      const profile = await liff.getProfile();
-      document.getElementById("pictureUrl").src = profile.pictureUrl;
-      document.getElementById("userId").append(profile.userId);
-      document.getElementById("statusMessage").append(profile.statusMessage);
-      document.getElementById("displayName").append(profile.displayName);
-      document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email);
+      const profile = await liff.getProfile()
+      document.getElementById("pictureUrl").src = profile.pictureUrl
+      document.getElementById("userId").append(profile.userId)
+      document.getElementById("statusMessage").append(profile.statusMessage)
+      document.getElementById("displayName").append(profile.displayName)
+      document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
     }
-
+    
     function getEnvironment() {
-      document.getElementById("os").append(liff.getOS());
-      document.getElementById("language").append(liff.getLanguage());
-      document.getElementById("version").append(liff.getVersion());
-      document.getElementById("accessToken").append(liff.getAccessToken());
-      document.getElementById("isInClient").append(liff.isInClient());
+      document.getElementById("os").append(liff.getOS())
+      document.getElementById("language").append(liff.getLanguage())
+      document.getElementById("version").append(liff.getVersion())
+      document.getElementById("accessToken").append(liff.getAccessToken())
+      document.getElementById("isInClient").append(liff.isInClient())
       if (liff.isInClient()) {
-        document.getElementById("btnLogOut").style.display = "none";
+        document.getElementById("btnLogOut").style.display = "none"
       } else {
-        // document.getElementById("btnMsg").style.display = "none";
-        document.getElementById("btnScanCode").style.display = "none";
-        document.getElementById("btnClose").style.display = "none";
+        document.getElementById("btnMsg").style.display = "none"
+        document.getElementById("btnScanCode").style.display = "none"
+        document.getElementById("btnClose").style.display = "none"
       }
     }
-    document.getElementById('liffLoginButton').addEventListener('click', function() {
-        if (!liff.isLoggedIn()) {
-            liff.login();
-        }
-    });
 
-    // logout call only when external browse
-    document.getElementById('liffLogoutButton').addEventListener('click', function() {
-        if (liff.isLoggedIn()) {
-            liff.logout();
-            window.location.reload();
-        }
-    });
     async function main() {
-      // console.log("value1 : ",JSON.stringify(this.value1) );   
-      console.log("ele : ", JSON.stringify(this.ele)); 
-
-      await liff.init({ liffId: "1655119577-P2EjOMpj" });
-      document.getElementById("isLoggedIn").append(liff.isLoggedIn())
-      // if(liff.isLoggedIn()){
-      getEnvironment();
-      getUserProfile();
-      getContext();
-      getFriendship();
-      createUniversalLink()
-      // }else{
-      //   liff.login()
-      // }
-
+      liff.ready.then(() => {
+        document.getElementById("isLoggedIn").append(liff.isLoggedIn())
+        if (liff.isLoggedIn()) {
+          getEnvironment()
+          getUserProfile()
+          getContext()
+          getFriendship()
+          createUniversalLink()
+        } else {
+          liff.login()
+        }
+      })
+      await liff.init({ liffId: "1655119577-P2EjOMpj" })
     }
-    main();
-    
+    main()
   </script>
 </body>
-
-
-
 </html>
