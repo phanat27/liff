@@ -49,11 +49,11 @@
 
   <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <script>
-    function createUniversalLink() {
+   async function createUniversalLink() {
       const link1 = liff.permanentLink.createUrl()
       document.getElementById("universalLink1").append(link1)
 
-      liff.permanentLink.setExtraQueryParam('param=9')
+      await liff.permanentLink.setExtraQueryParam('param=9')
       const link2 = liff.permanentLink.createUrl()
       document.getElementById("universalLink2").app(link2)
     }
