@@ -114,16 +114,16 @@
     }
 
     async function getUserProfile() {
-      const profile = await liff.getProfile()
-      const email = await liff.getDecodedIDToken();
-      console.log('profile >>> : ', profile)
-      const liffId = '1655119577-P2EjOMpj'
-      const LIFF_STORE = await localStorage.getItem(`LIFF_STORE:${liffId}`)
+      // const profile = await liff.getProfile()
+      const profile = await liff.getDecodedIDToken();
+      // console.log('profile >>> : ', profile)
+      // const liffId = '1655119577-P2EjOMpj'
+      // const LIFF_STORE = await localStorage.getItem(`LIFF_STORE:${liffId}`)
       console.log('profile : ', profile)
-      console.log('email : ', email)
-      console.log('LIFF_STORE : ', LIFF_STORE)
-      document.getElementById("pictureUrl").src = profile.pictureUrl
-      document.getElementById("userId").append(profile.userId)
+      // console.log('email : ', email)
+      // console.log('LIFF_STORE : ', LIFF_STORE)
+      document.getElementById("pictureUrl").src = profile.picture
+      document.getElementById("userId").append(liff.getProfile().profile.userId)
       document.getElementById("statusMessage").append(profile.statusMessage)
       document.getElementById("displayName").append(LIFF_STORE.name)
       document.getElementById("decodedIDToken").append(LIFF_STORE.email)
