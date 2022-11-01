@@ -36,11 +36,6 @@
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
   <button id="btnClose" onclick="closed()">Close</button>
 
-  <script src="js/vconsole.min.js"></script>
-  <script>
-    var vConsole = new VConsole()
-    console.log("Hello World!")
-  </script>
   <!-- <script src="js/vconsole.min.js"></script> -->
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <script>
@@ -159,6 +154,12 @@
       await liff.init({ liffId: "1655119577-P2EjOMpj" })
     }
     main()
+    
+  </script>
+  <script src="./../js/vconsole.min.js"></script>
+  <script>
+    var vConsole = new VConsole()
+    console.log("Hello World!")
   </script>
 </body>
 </html>
