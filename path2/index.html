@@ -14,7 +14,7 @@
   <p id="version"><b>Version:</b> </p>
   <p id="isInClient"><b>isInClient:</b> </p>
   <p id="accessToken"><b>AccessToken:</b> </p>
-  <img id="pictureUrl">
+  <!-- <img id="pictureUrl"> -->
   <p id="userId"><b>userId:</b> </p>
   <p id="displayName"><b>displayName:</b> </p>
   <p id="statusMessage"><b>statusMessage:</b> </p>
@@ -116,17 +116,12 @@
     async function getUserProfile() {
       // const profile = await liff.getProfile()
       const profile = await liff.getDecodedIDToken();
-      // console.log('profile >>> : ', profile)
-      // const liffId = '1655119577-P2EjOMpj'
-      // const LIFF_STORE = await localStorage.getItem(`LIFF_STORE:${liffId}`)
       console.log('profile : ', profile)
-      // console.log('email : ', email)
-      // console.log('LIFF_STORE : ', LIFF_STORE)
-       document.getElementById("pictureUrl").src = await profile.picture
       await document.getElementById("userId").append(liff.getProfile().profile.userId)
       await document.getElementById("statusMessage").append(liff.getProfile().statusMessage)
       await document.getElementById("displayName").append(profile.name)
       await document.getElementById("decodedIDToken").append(profile.email)
+       document.getElementById("pictureUrl").src = await profile.picture
     }
     
     function getEnvironment() {
