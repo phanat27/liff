@@ -121,7 +121,7 @@
       await document.getElementById("statusMessage").append(liff.getProfile().statusMessage)
       await document.getElementById("displayName").append(profile.name)
       await document.getElementById("decodedIDToken").append(profile.email)
-      await document.getElementById("userId").append(liff.getProfile().userId)
+      // await document.getElementById("userId").append(liff.getProfile().userId)
        document.getElementById("pictureUrl").src = await profile.picture
        alert('getUserProfile')
     }
