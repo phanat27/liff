@@ -124,9 +124,9 @@
       // console.log('LIFF_STORE : ', LIFF_STORE)
       document.getElementById("pictureUrl").src = profile.picture
       document.getElementById("userId").append(liff.getProfile().profile.userId)
-      document.getElementById("statusMessage").append(profile.statusMessage)
-      document.getElementById("displayName").append(LIFF_STORE.name)
-      document.getElementById("decodedIDToken").append(LIFF_STORE.email)
+      document.getElementById("statusMessage").append(liff.getProfile().statusMessage)
+      document.getElementById("displayName").append(profile.name)
+      document.getElementById("decodedIDToken").append(profile.email)
     }
     
     function getEnvironment() {
