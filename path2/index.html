@@ -122,6 +122,7 @@
       await document.getElementById("displayName").append(profile.name)
       await document.getElementById("decodedIDToken").append(profile.email)
        document.getElementById("pictureUrl").src = await profile.picture
+       alert('getUserProfile')
     }
     
     function getEnvironment() {
