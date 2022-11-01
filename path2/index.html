@@ -3,7 +3,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
   <title>My LIFF App</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="./../css/style.css">
 </head>
 <body>
   <h1>path2</h1>
@@ -41,7 +41,7 @@
     var vConsole = new VConsole()
     console.log("Hello World!")
   </script>
-
+  <!-- <script src="js/vconsole.min.js"></script> -->
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <script>
     function createUniversalLink() {
@@ -120,6 +120,7 @@
 
     async function getUserProfile() {
       const profile = await liff.getProfile()
+      console.log('profile >>> : ', profile)
       document.getElementById("pictureUrl").src = profile.pictureUrl
       document.getElementById("userId").append(profile.userId)
       document.getElementById("statusMessage").append(profile.statusMessage)
