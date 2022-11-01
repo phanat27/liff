@@ -14,7 +14,7 @@
   <p id="version"><b>Version:</b> </p>
   <p id="isInClient"><b>isInClient:</b> </p>
   <p id="accessToken"><b>AccessToken:</b> </p>
-  <!-- <img id="pictureUrl"> -->
+  <img id="pictureUrl">
   <p id="userId"><b>userId:</b> </p>
   <p id="displayName"><b>displayName:</b> </p>
   <p id="statusMessage"><b>statusMessage:</b> </p>
@@ -37,7 +37,7 @@
   <button id="btnClose" onclick="closed()">Close</button>
 
   <!-- <script src="js/vconsole.min.js"></script> -->
-  <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <script>
     function createUniversalLink() {
       const link1 = liff.permanentLink.createUrl()
@@ -115,12 +115,18 @@
 
     async function getUserProfile() {
       const profile = await liff.getProfile()
+      const email = await liff.getDecodedIDToken();
       console.log('profile >>> : ', profile)
+      const liffId = '1655119577-P2EjOMpj'
+      const LIFF_STORE = await localStorage.getItem(`LIFF_STORE:${liffId}`)
+      console.log('profile : ', profile)
+      console.log('email : ', email)
+      console.log('LIFF_STORE : ', LIFF_STORE)
       document.getElementById("pictureUrl").src = profile.pictureUrl
       document.getElementById("userId").append(profile.userId)
       document.getElementById("statusMessage").append(profile.statusMessage)
-      document.getElementById("displayName").append(profile.displayName)
-      document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
+      document.getElementById("displayName").append(LIFF_STORE.name)
+      document.getElementById("decodedIDToken").append(LIFF_STORE.email)
     }
     
     function getEnvironment() {
