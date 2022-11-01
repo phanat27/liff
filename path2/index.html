@@ -140,11 +140,11 @@
     }
 
     async function main() {
-      liff.ready.then(() => {
+      liff.ready.then(async () => {
         document.getElementById("isLoggedIn").append(liff.isLoggedIn())
         if (liff.isLoggedIn()) {
+          await getUserProfile()
           getEnvironment()
-          getUserProfile()
           getContext()
           getFriendship()
           createUniversalLink()
