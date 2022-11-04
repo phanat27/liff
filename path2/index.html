@@ -2,7 +2,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
-  <title>My LIFF App</title>
+  <title>ข้อมูลที่กึงมาได้จาก line liff</title>
   <link rel="stylesheet" href="./../css/style.css">
 </head>
 <body>
@@ -14,7 +14,7 @@
   <p id="version"><b>Version:</b> </p>
   <p id="isInClient"><b>isInClient:</b> </p>
   <p id="accessToken"><b>AccessToken:</b> </p>
-  <!-- <img id="pictureUrl"> -->
+  <img id="pictureUrl">
   <p id="userId"><b>userId:</b> </p>
   <p id="displayName"><b>displayName:</b> </p>
   <p id="statusMessage"><b>statusMessage:</b> </p>
@@ -114,14 +114,15 @@
     }
 
     async function getUserProfile() {
-      // const profile = await liff.getProfile()
+      const getProfile = await liff.getProfile()
       const profile = await liff.getDecodedIDToken();
       console.log('profile : ', profile)
-      
+      console.log('getProfile : ', getProfile)
+      await document.getElementById("userId").append(profile.sub)
       await document.getElementById("statusMessage").append(liff.getProfile().statusMessage)
       await document.getElementById("displayName").append(profile.name)
       await document.getElementById("decodedIDToken").append(profile.email)
-      // await document.getElementById("userId").append(liff.getProfile().userId)
+      
        document.getElementById("pictureUrl").src = await profile.picture
        alert('getUserProfile')
     }
