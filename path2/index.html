@@ -2,11 +2,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
-  <title>ข้อมูลที่กึงมาได้จาก line liff</title>
+  <title>My LIFF App</title>
   <link rel="stylesheet" href="./../css/style.css">
 </head>
 <body>
-  <h1>test 2</h1>
+  <h1>ข้อมูลที่กึงมาได้จาก line liff</h1>
   <p id="universalLink1"><b>Universal Link:</b> </p>
   <p id="universalLink2"><b>Universal Link with Query params:</b> </p>
   <p id="os"><b>OS:</b> </p>
@@ -122,9 +122,7 @@
       await document.getElementById("statusMessage").append(liff.getProfile().statusMessage)
       await document.getElementById("displayName").append(profile.name)
       await document.getElementById("decodedIDToken").append(profile.email)
-      
        document.getElementById("pictureUrl").src = await profile.picture
-       alert('getUserProfile')
     }
     
     function getEnvironment() {
@@ -142,22 +140,22 @@
       }
     }
 
-    async function main() {
-      liff.ready.then(async () => {
-        document.getElementById("isLoggedIn").append(liff.isLoggedIn())
-        if (liff.isLoggedIn()) {
-          getEnvironment()
-          getUserProfile()
-          getContext()
-          getFriendship()
-          createUniversalLink()
-        } else {
-          liff.login()
-        }
-      })
-      await liff.init({ liffId: "1655119577-P2EjOMpj" })
-    }
-    main()
+    // async function main() {
+    //   liff.ready.then(async () => {
+    //     document.getElementById("isLoggedIn").append(liff.isLoggedIn())
+    //     if (liff.isLoggedIn()) {
+    //       getEnvironment()
+    //       getUserProfile()
+    //       getContext()
+    //       getFriendship()
+    //       createUniversalLink()
+    //     } else {
+    //       liff.login()
+    //     }
+    //   })
+    //   await liff.init({ liffId: "1655119577-P2EjOMpj" })
+    // }
+    // main()
     
   </script>
   <script src="./../js/vconsole.min.js"></script>
